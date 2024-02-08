@@ -5,7 +5,7 @@ import HardSourceWebpackPlugin from 'hard-source-webpack-plugin';
 
 export default {
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.json'],
+    extensions: ['*', '.ts', '.tsx', '.json', '.js', '.jsx'],
     // To support react-hot-loader
     alias: {
       'react-dom': '@hot-loader/react-dom'
@@ -124,7 +124,12 @@ export default {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    },
     ]
   }
 };

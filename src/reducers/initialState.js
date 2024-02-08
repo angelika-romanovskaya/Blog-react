@@ -1,4 +1,7 @@
 export default {
+  counter:{
+    count: 0,
+  },
   fuelSavings: {
     newMpg: '',
     tradeMpg: '',
