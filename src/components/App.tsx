@@ -5,7 +5,7 @@ import AboutPage from "./AboutPage";
 import FuelSavingsPage from "./containers/FuelSavingsPage";
 import HomePage from "./HomePage";
 import NotFoundPage from "./NotFoundPage";
-import PropTypes from "prop-types";
+import PropTypes, { InferProps } from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
 import CounterPage from "./CounterPage";
@@ -14,10 +14,9 @@ import CounterPage from "./CounterPage";
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 
-class App extends React.Component {
-  render() {
-    const activeStyle = { color: 'blue' };
-    return (
+function App(props: InferProps<typeof App.propTypes>) {
+  const activeStyle = { color: 'blue' };
+  return(
       <div>
         <div>
           <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
@@ -36,8 +35,7 @@ class App extends React.Component {
           <Route component={NotFoundPage} />
         </Switch>
       </div>
-    );
-  }
+  )
 }
 
 App.propTypes = {

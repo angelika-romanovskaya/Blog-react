@@ -10,7 +10,6 @@ export default function counterReducer(state = initialState.counter, action) {
         return {...state, count: state.count - 1};
 
       default:{
-        console.log(state)
         return state;
       }
     }
