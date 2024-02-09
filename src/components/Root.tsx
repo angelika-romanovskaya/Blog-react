@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ConnectedRouter } from 'connected-react-router';
-import { Provider } from 'react-redux';
+import { Provider  } from 'react-redux';
 import App from './App';
 
-export default function Root(props){
-    const {store, history} = props;
-
-    console.log(props)
+export default function Root(props:any){
     return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <App />
+      <Provider store={props.store}>
+        <ConnectedRouter history={props.history}>
+            <App />
         </ConnectedRouter>
       </Provider>
     );

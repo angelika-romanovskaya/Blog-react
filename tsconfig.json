@@ -26,6 +26,6 @@
   "exclude": [
     "./plugins/**/*",
     "./typings/**/*",
-    "./dist/**/*" // This is what fixed it!
+    "./dist/**/*"
 ]
 }

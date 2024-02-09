@@ -14,7 +14,7 @@ import CounterPage from "./CounterPage";
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
 
-function App(props: InferProps<typeof App.propTypes>) {
+function App(props) {
   const activeStyle = { color: 'blue' };
   return(
       <div>
