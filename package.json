@@ -33,6 +33,7 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "@babel/preset-typescript": "7.23.3",
     "@hot-loader/react-dom": "16.10.2",
     "@types/jest": "29.5.12",
     "@types/react": "18.2.55",
@@ -107,7 +108,7 @@
     "sass": "1.70.0",
     "sass-loader": "8.0.0",
     "style-loader": "1.0.0",
-    "ts-loader": "9.5.1",
+    "ts-loader": "8.2.0",
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
     "url-loader": "2.2.0",
