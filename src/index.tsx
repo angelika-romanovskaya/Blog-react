@@ -11,7 +11,7 @@ const store = configureStore();
 
 render(
   <AppContainer>
-    <Root store={store} history={history}/>
+    <Root store={store}/>
   </AppContainer>,
   document.getElementById('app')
 );
@@ -21,7 +21,7 @@ if (module.hot) {
     const NewRoot = require('./components/Root').default;
     render(
       <AppContainer>
-        <NewRoot store={store} history={history} />
+        <NewRoot store={store}/>
       </AppContainer>,
       document.getElementById('app')
     );
