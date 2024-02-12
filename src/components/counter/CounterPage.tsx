@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../actions/counterAction';
+import * as actions from '../../actions/counterAction';
 import Counter from './Counter';
 
 function CounterPage(props) {

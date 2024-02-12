@@ -1,31 +1,28 @@
 /* eslint-disable import/no-named-as-default */
 import { NavLink, Route, Switch } from "react-router-dom";
 
-import HomePage from "./HomePage";
+import HomePage from "./home/HomePage";
 import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
-import CounterPage from "./CounterPage";
-
-// This is a class-based component because the current
-// version of hot reloading won't hot reload a stateless
-// component at the top-level.
+import CounterPage from "./counter/CounterPage";
+import { Header } from "./Header";
+import { Container } from "../styles/Container";
+import BlogPage from "./blog/BlogPage";
+import { Navbar } from "./Navbar";
+import PostDetails from "./blog/PostDetails";
 
 function App(props) {
-  const activeStyle = { color: 'blue' };
   return(
-      <div>
-        <div>
-          <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
-          {' | '}
-          <NavLink to="/counter" activeStyle={activeStyle}>Counter</NavLink>
-          {' | '}
-        </div>
+      <Container>
+        <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/counter" component={CounterPage} />
+          <Route path="/blog" component={BlogPage} />
+          <Route path="/post/1" component={PostDetails} />
         </Switch>
-      </div>
+      </Container>
   )
 }
 
