@@ -29,7 +29,11 @@ export const Links = styled(NavLink)`
 `
 
 export const Img = styled.img`
-    max-width: 300px;
+    margin-bottom: 30px;
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
 `
 
 export const Details = styled.div`
