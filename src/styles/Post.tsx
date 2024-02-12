@@ -46,3 +46,10 @@ export const Details = styled.div`
         padding: 0 20px;
     }
 `
+
+export const Description = styled.p`
+     display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+`
