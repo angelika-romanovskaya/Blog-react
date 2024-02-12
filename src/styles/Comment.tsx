@@ -16,11 +16,11 @@ export const SaveComment = styled.button`
     width: fit-content;
     background-color: #bebaba;
     border: none;
+    cursor: pointer;
 `
 
 export const CommentInput = styled.textarea`
-    color: white;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px 15px;
     width: calc(100vw - 300px);
 

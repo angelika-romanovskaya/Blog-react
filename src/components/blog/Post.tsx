@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TitleH3 } from '../../styles/Title';
 import { Date } from '../../styles/Date';
-import { Description, Links, PostDiv } from '../../styles/Post';;
+import { Description, Img, Links, PostDiv } from '../../styles/Post';;
 
 export interface IPostProps {
 }
@@ -11,7 +11,7 @@ export default function Post (props: IPostProps) {
     <Links to={"/post/" + 1}>
       <PostDiv>
         <div>
-          <img src="https://animals.pibig.info/uploads/posts/2023-10/1696244958_animals-pibig-info-p-ptitsa-sekretar-morad-instagram-10.jpg" alt="" />
+          <Img src="https://animals.pibig.info/uploads/posts/2023-10/1696244958_animals-pibig-info-p-ptitsa-sekretar-morad-instagram-10.jpg" alt="" />
         </div>
         <div>
           <TitleH3>Нow to be mpre productive?</TitleH3>

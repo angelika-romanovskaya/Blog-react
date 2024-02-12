@@ -5,6 +5,7 @@ export const PostDiv = styled.div`
     display: flex;
     gap: 20px;
     padding: 0 80px;
+    max-height: 300px;
 
     @media (max-width:760px) {
         padding: 0 20px;
@@ -34,6 +35,7 @@ export const Img = styled.img`
     width: 100%;
     object-fit: cover;
     object-position: top;
+    height: 100%;
 `
 
 export const Details = styled.div`
