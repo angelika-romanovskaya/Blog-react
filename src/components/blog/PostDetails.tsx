@@ -7,7 +7,7 @@ import Comment from './Comment';
 export interface IPostDetailsProps {
 }
 
-export default function PostDetails (props: IPostDetailsProps) {
+const PostDetails = (props: IPostDetailsProps) => {
   return (
     <Details>
         <TitleH3>Нow to be mpre productive?</TitleH3>
@@ -19,3 +19,5 @@ export default function PostDetails (props: IPostDetailsProps) {
     </Details>
   );
 }
+
+export default PostDetails

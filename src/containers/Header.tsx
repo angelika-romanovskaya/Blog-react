@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {TitleH1} from '../styles/Title'
 import { Headers } from '../styles/Header';
-import { Navbar } from './Navbar';
+import Navbar from './Navbar';
 
 export interface IHeaderProps {
 }
 
-export function Header (props: IHeaderProps) {
+const Header = (props: IHeaderProps) =>{
   return (
     <Headers>
       <Navbar/>
@@ -14,3 +14,5 @@ export function Header (props: IHeaderProps) {
     </Headers>
   );
 }
+
+export default Header;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function  Counter({increment, decrement, count}) {
+const  Counter = ({increment, decrement, count}) =>{
   console.log(count)
   return(
     <div>

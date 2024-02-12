@@ -6,7 +6,7 @@ import { Description, Img, Links, PostDiv } from '../../styles/Post';;
 export interface IPostProps {
 }
 
-export default function Post (props: IPostProps) {
+const Post = (props: IPostProps) => {
   return (
     <Links to={"/post/" + 1}>
       <PostDiv>
@@ -23,3 +23,5 @@ export default function Post (props: IPostProps) {
     </Links>
   );
 }
+
+export default Post;

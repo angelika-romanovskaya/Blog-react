@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../../actions/counterAction';
 import Counter from './Counter';
 
-function CounterPage(props) {
+const CounterPage = (props) => {
     return (
       <Counter
       count = {props.counter}
@@ -14,15 +14,9 @@ function CounterPage(props) {
     );
 }
 
-CounterPage.propTypes = {
-    actions: PropTypes.object.isRequired,
-    counter: PropTypes.object.isRequired
-  };
-
 function mapStateToProps(state) {
   return {
     counter: state.counter
-
   };
 }
 

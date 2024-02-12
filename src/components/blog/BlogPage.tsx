@@ -4,10 +4,10 @@ import Post from './Post';
 export interface IBlogPageProps {
 }
 
-export default function BlogPage (props: IBlogPageProps) {
+const BlogPage = (props: IBlogPageProps) =>{
   return (
-    <>
       <Post/>
-    </>
   );
 }
+
+export default BlogPage;

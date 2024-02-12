@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import * as React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Nav, ButtonNav, NavContainer } from '../styles/NavbarElement';
 import { NavLink } from 'react-router-dom';
 
@@ -7,26 +7,18 @@ import { NavLink } from 'react-router-dom';
 export interface INavbarProps {
 }
 
-export function Navbar (props: INavbarProps) {
+const Navbar = (props: INavbarProps) =>{
     const activeStyle = { color: 'blue' };
-    const [toggleMenu, setToggleMenu] = React.useState(false)
+    const [toggleMenu, setToggleMenu] = useState(false)
     const [screenWidth, setScreenWidth] = React.useState(window.innerWidth)
 
-    const toggleNav = () => {
-        setToggleMenu(!toggleMenu)
-    }
+    const toggleNav = () => setToggleMenu(!toggleMenu)
 
-      React.useEffect(() => {
-
-        const changeWidth = () => {
-          setScreenWidth(window.innerWidth);
-        }
-    
+    useEffect(() => {
+        const changeWidth = () => setScreenWidth(window.innerWidth);
         window.addEventListener('resize', changeWidth)
-        return () => {
-            window.removeEventListener('resize', changeWidth)
-        }
-      }, [])
+        return () =>  window.removeEventListener('resize', changeWidth)
+    }, [])
 
     return (
         <NavContainer>
@@ -45,3 +37,5 @@ export function Navbar (props: INavbarProps) {
         </NavContainer>
     );
 }
+
+export default Navbar

@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Provider  } from 'react-redux';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
-export default function Root({store}){
+const Root = ({store}) =>{
     return (
       <Provider store={store}>
           <BrowserRouter>
@@ -14,6 +13,4 @@ export default function Root({store}){
     );
 }
 
-Root.propTypes = {
-  store: PropTypes.object.isRequired
-};
+export default Root;
