@@ -27,6 +27,7 @@ const Navbar = (props: INavbarProps) =>{
                 <NavLink onClick={toggleNav} style={{textDecoration: "none"}} exact to="/" activeStyle={activeStyle}>Home</NavLink>
                 <NavLink onClick={toggleNav} style={{textDecoration: "none"}} to="/counter" activeStyle={activeStyle}>Counter</NavLink>
                 <NavLink onClick={toggleNav} style={{textDecoration: "none"}} to="/blog" activeStyle={activeStyle}>Blog</NavLink>
+                <NavLink onClick={toggleNav} style={{textDecoration: "none"}} to="/auth" activeStyle={activeStyle}>Log IN</NavLink>
             </Nav>
             )}
             

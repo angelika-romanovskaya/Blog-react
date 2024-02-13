@@ -16,6 +16,7 @@ import { fetchPosts } from "../actions/postAction";
 import { fetchUsers } from "../actions/userAction";
 import { fetchComments } from "../actions/commentAction";
 import Error from "../components/error/Error";
+import Form from "./Form";
 
 const App = (props) =>{
   const posts = useTypeSelector(state => state.posts);
@@ -60,6 +61,7 @@ const App = (props) =>{
           <Route exact path="/" component={HomePage} />
           <Route path="/counter" component={CounterPage} />
           <Route path="/blog" component={BlogPage} />
+          <Route path="/auth" component={Form} />
           {posts.posts.map(post=> <Route key={post.id} path={'/post/' + post.id} render={()=> (<PostDetails post={post}/>)}/>)}
         </Switch>
       </Container>
