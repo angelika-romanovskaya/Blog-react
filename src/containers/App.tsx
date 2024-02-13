@@ -15,6 +15,7 @@ import { useTypeSelector } from "../hook/useTypeSelector";
 import { fetchPosts } from "../actions/postAction";
 import { fetchUsers } from "../actions/userAction";
 import { fetchComments } from "../actions/commentAction";
+import Error from "../components/error/Error";
 
 const App = (props) =>{
   const posts = useTypeSelector(state => state.posts);
@@ -41,15 +42,15 @@ const App = (props) =>{
   }
 
   if(posts.error){
-    return <TitleH1>{posts.error}</TitleH1>
+    return <Error error={posts.error}/>
   }
 
   if(users.error){
-    return <TitleH1>{users.error}</TitleH1>
+    return <Error error={users.error}/>
   }
 
   if(comments.error){
-    return <TitleH1>{comments.error}</TitleH1>
+    return <Error error={comments.error}/>
   }
 
   return(
