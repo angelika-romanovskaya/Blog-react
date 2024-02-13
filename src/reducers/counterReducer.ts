@@ -1,7 +1,13 @@
 import {INCREMENT, DECREMENT} from '../constants/actionTypes';
-import initialState from './initialState';
 
-export default function counterReducer(state = initialState.counter, action) {
+
+export const initialStateCounter = {
+  counter: {
+    count: 0
+  }
+};
+
+export default function counterReducer(state = initialStateCounter.counter, action) {
     switch (action.type) {
       case INCREMENT:
         return {...state, count: state.count +1};

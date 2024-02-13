@@ -9,10 +9,9 @@ function configureStoreProd(initialState) {
   ];
 
   return createStore(
-    createRootReducer(history), // root reducer with router state
-    initialState,
-    compose(applyMiddleware(...middlewares))
-  );
+    createRootReducer, // root reducer with router state
+    applyMiddleware(...middlewares)
+);
 }
 
 function configureStoreDev(initialState) {
@@ -23,9 +22,8 @@ function configureStoreDev(initialState) {
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
   const store = createStore(
-    createRootReducer(history), // root reducer with router state
-    initialState,
-    composeEnhancers(applyMiddleware(...middlewares))
+    createRootReducer, // root reducer with router state
+    applyMiddleware(...middlewares)
   );
 
   if (module.hot) {

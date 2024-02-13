@@ -34,7 +34,7 @@ export const Img = styled.img`
     max-height: 300px;
     width: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
     height: 100%;
 `
 
