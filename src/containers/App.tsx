@@ -36,16 +36,8 @@ const App = (props) =>{
 
   console.log(posts, users, comments)
 
-  if(posts.loading){
-    return <TitleH1>Идет загрузка постов...</TitleH1>
-  }
-
-  if(users.loading){
-    return <TitleH1>Идет загрузка пользователей...</TitleH1>
-  }
-
-  if(comments.loading){
-    return <TitleH1>Идет загрузка комментариев...</TitleH1>
+  if(posts.loading || users.loading || comments.loading){
+    return <TitleH1>Идет загрузка ...</TitleH1>
   }
 
   if(posts.error){

@@ -8,7 +8,7 @@ export interface INavbarProps {
 }
 
 const Navbar = (props: INavbarProps) =>{
-    const activeStyle = { color: 'blue' };
+    const activeStyle = { color: 'blue', fontWeight: "bold" };
     const [toggleMenu, setToggleMenu] = useState(false)
     const [screenWidth, setScreenWidth] = React.useState(window.innerWidth)
 
@@ -24,9 +24,9 @@ const Navbar = (props: INavbarProps) =>{
         <NavContainer>
             {(toggleMenu || screenWidth > 760) && (
                 <Nav>
-                <NavLink onClick={toggleNav} exact to="/" activeStyle={activeStyle}>Home</NavLink>
-                <NavLink onClick={toggleNav} to="/counter" activeStyle={activeStyle}>Counter</NavLink>
-                <NavLink onClick={toggleNav} to="/blog" activeStyle={activeStyle}>Blog</NavLink>
+                <NavLink onClick={toggleNav} style={{textDecoration: "none"}} exact to="/" activeStyle={activeStyle}>Home</NavLink>
+                <NavLink onClick={toggleNav} style={{textDecoration: "none"}} to="/counter" activeStyle={activeStyle}>Counter</NavLink>
+                <NavLink onClick={toggleNav} style={{textDecoration: "none"}} to="/blog" activeStyle={activeStyle}>Blog</NavLink>
             </Nav>
             )}
             
