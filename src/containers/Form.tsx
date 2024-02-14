@@ -1,48 +1,53 @@
 import React, { useState } from 'react';
 import { FormButton, FormInput, FormItem, FormStyle, FormSubmitDiv, FormTitle, FormWrapper, Label, Wrapper } from '../styles/FormElement';
+import { useDispatch } from 'react-redux';
+import { authUser } from '../actions/authAction';
+import { useTypeSelector } from '../hook/useTypeSelector';
+import { useNavigate } from 'react-router-dom';
 
-interface SignUpProps {
-    name?: any;
-    value?: any;
-}
-
-const Form = (props:SignUpProps) => {
+const Form = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const auth = useTypeSelector(state => state.auth)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
     const [error, setError] = useState({
                                             username : '',
-                                            password : ''
+                                            password : '',
+                                            all: ''
                                         });
 
     const handleChange = (event : any) => {
-        event.preventDefault();
         const { name, value } = event.target;
         let errors = error;
         switch (name) {
             case 'username':
-                errors.username = value.length < 5 ? 'Username must be 5 characters long!': '';
+                errors.username = value.trim().length < 5 ? 'Username must be 5 characters long!': '';
                 break;
             case 'password':
-                errors.password = value.length < 8 ? 'Password must be eight characters long!': '';
+                errors.password = value.trim().length < 8 ? 'Password must be eight characters long!': '';
                 break;
             default:
                 break;
         }
         setError(errors);
-        if(name === 'username') setUsername(value)
-        else setPassword(value)
-        console.log(errors);
+        if(name === 'username') setUsername(value.trim())
+        else setPassword(value.trim())
     }
+
     const handleSubmit = (event : any) => {
         event.preventDefault();
         let validity = true;
+        let errors = error;
         Object.values(error).forEach(
             (val) => val.length > 0 && (validity = false)
         );
         if(validity == true){
-            console.log("Log in can be done");
-        }else{
-            console.log("You cannot be log in!!!")
+            dispatch(authUser(username, password))
+            errors.all = auth.error.length > 0 ? auth.error : '';
+            if(auth.auth) navigate('/')
+            setError(errors)
         }
     }
 
@@ -62,7 +67,8 @@ const Form = (props:SignUpProps) => {
                         {error.password.length > 0 &&  <span style={{color: "red"}}>{error.password}</span>}
                     </FormItem>              
                     <FormSubmitDiv>
-                        <FormButton>Log IN</FormButton>
+                        <FormButton type='submit'>Log IN</FormButton>
+                        {error.all.length > 0 &&  <span style={{color: "red"}}>{error.all}</span>}
                     </FormSubmitDiv>
                 </FormStyle>
             </FormWrapper>

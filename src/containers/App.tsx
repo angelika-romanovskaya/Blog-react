@@ -1,6 +1,5 @@
 /* eslint-disable import/no-named-as-default */
-import { Route,  Switch } from "react-router-dom";
-
+import { Route,  Routes } from "react-router-dom";
 import HomePage from "../components/home/HomePage";
 import React, { useEffect } from "react";
 import { hot } from "react-hot-loader";
@@ -57,13 +56,13 @@ const App = (props) =>{
   return(
       <Container>
         <Header/>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/counter" component={CounterPage} />
-          <Route path="/blog" component={BlogPage} />
-          <Route path="/auth" component={Form} />
-          {posts.posts.map(post=> <Route key={post.id} path={'/post/' + post.id} render={()=> (<PostDetails post={post}/>)}/>)}
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/counter" element={<CounterPage/>} />
+          <Route path="/blog" element={<BlogPage/>} />
+          <Route path="/auth" element={<Form/>} />
+          {posts.posts.map(post=> <Route key={post.id} path={'/post/' + post.id} element={<PostDetails post={post}/>}/>)}
+        </Routes>
       </Container>
   )
 }
