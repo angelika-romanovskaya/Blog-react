@@ -57,7 +57,7 @@ const Form = () => {
                 <FormTitle>Log IN</FormTitle>
                 <FormStyle onSubmit={handleSubmit} noValidate >
                     <FormItem>
-                        <Label htmlFor="username">Full Name</Label>
+                        <Label htmlFor="username">Username</Label>
                         <FormInput type='text' name='username' onChange={handleChange}/>
                         {error.username.length > 0 &&  <span style={{color: "red"}}>{error.username}</span>}
                     </FormItem>
