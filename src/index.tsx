@@ -6,7 +6,7 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
 require('./favicon.ico');
-const store = configureStore();
+export const store = configureStore();
 
 render(
   <AppContainer>
