@@ -1,5 +1,6 @@
 /* eslint-disable import/no-named-as-default */
-import { Route,  Routes } from "react-router-dom";
+import { Route,  Switch } from "react-router-dom";
+
 import HomePage from "../components/home/HomePage";
 import React, { useEffect } from "react";
 import { hot } from "react-hot-loader";
@@ -14,8 +15,6 @@ import { useTypeSelector } from "../hook/useTypeSelector";
 import { fetchPosts } from "../actions/postAction";
 import { fetchUsers } from "../actions/userAction";
 import { fetchComments } from "../actions/commentAction";
-import Error from "../components/error/Error";
-import Form from "./Form";
 
 const App = (props) =>{
   const posts = useTypeSelector(state => state.posts);
@@ -37,32 +36,39 @@ const App = (props) =>{
 
   console.log(posts, users, comments)
 
-  if(posts.loading || users.loading || comments.loading){
-    return <TitleH1>Идет загрузка ...</TitleH1>
+  if(posts.loading){
+    return <TitleH1>Идет загрузка постов...</TitleH1>
+  }
+
+  if(users.loading){
+    return <TitleH1>Идет загрузка пользователей...</TitleH1>
+  }
+
+  if(comments.loading){
+    return <TitleH1>Идет загрузка комментариев...</TitleH1>
   }
 
   if(posts.error){
-    return <Error error={posts.error}/>
+    return <TitleH1>{posts.error}</TitleH1>
   }
 
   if(users.error){
-    return <Error error={users.error}/>
+    return <TitleH1>{users.error}</TitleH1>
   }
 
   if(comments.error){
-    return <Error error={comments.error}/>
+    return <TitleH1>{comments.error}</TitleH1>
   }
 
   return(
       <Container>
         <Header/>
-        <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/counter" element={<CounterPage/>} />
-          <Route path="/blog" element={<BlogPage/>} />
-          <Route path="/auth" element={<Form/>} />
-          {posts.posts.map(post=> <Route key={post.id} path={'/post/' + post.id} element={<PostDetails post={post}/>}/>)}
-        </Routes>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/counter" component={CounterPage} />
+          <Route path="/blog" component={BlogPage} />
+          {posts.posts.map(post=> <Route key={post.id} path={'/post/' + post.id} render={()=> (<PostDetails post={post}/>)}/>)}
+        </Switch>
       </Container>
   )
 }

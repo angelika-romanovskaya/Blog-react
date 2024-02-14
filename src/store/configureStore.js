@@ -5,11 +5,11 @@ import createRootReducer from '../reducers';
 
 function configureStoreProd(initialState) {
   const middlewares = [
-    thunk
+    thunk,
   ];
 
   return createStore(
-    createRootReducer,
+    createRootReducer, // root reducer with router state
     applyMiddleware(...middlewares)
 );
 }
@@ -20,15 +20,16 @@ function configureStoreDev(initialState) {
     thunk,
   ];
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
   const store = createStore(
-    createRootReducer, 
+    createRootReducer, // root reducer with router state
     applyMiddleware(...middlewares)
   );
 
   if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
     module.hot.accept('../reducers', () => {
-      const nextRootReducer = require('../reducers').default; 
+      const nextRootReducer = require('../reducers').default; // eslint-disable-line global-require
       store.replaceReducer(connectRouterHistory(nextRootReducer));
     });
   }

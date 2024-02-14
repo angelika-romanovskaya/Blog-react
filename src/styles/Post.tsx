@@ -9,7 +9,6 @@ export const PostDiv = styled.div`
 
     @media (max-width:760px) {
         padding: 0 20px;
-        max-height: fit-content;
     }
 
     @media (max-width:590px) {
